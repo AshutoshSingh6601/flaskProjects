@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+
+    <div class="container-sm m-auto">
+{% for i in data %}
+  <div class="alert alert-success col-sm-10 m-auto mb-3" role="alert">
+    <h4 class="alert-heading">{{loop.index}}. {{i.title}}</h4>
+    <form action="delete" method="post">
+      <input type="hidden" value="{{i.sno}}" name="id"/>
+    <!--<button type="submit">X</button>-->
+    <button type="submit" class="btn-close btn_close"></button>
+    </form>
+     <hr>
+    <p class="mb-0">{{i.content}}</p>
+    
+  </div>
+    
+{% endfor %}
+
+{% endblock content %}
